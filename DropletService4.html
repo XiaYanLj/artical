@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!--屏幕适配-->
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <link rel="short icon" href="Resource/icon.png" >
+
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <title>夏炎</title>
+
+    <style>
+
+        article{
+            margin:20px;
+        }
+        h3{
+            color:red;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+        h4{
+            font-size: 14px;
+
+        }
+        article p{
+            font-size: 12px;
+            text-indent: 3em;
+            line-height: 2em;
+        }
+
+
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+<!--语义化标签：增强代码可读性-->
+
+<header>
+    <span>平台风采</span>
+</header>
+
+<section class="section img">
+
+    <img src="Resource/banner4.png" alt="">
+
+</section>
+
+ <article>
+
+     <h3 id="title"></h3>
+     <h4 id="subTitle"></h4>
+     <p id="info"></p>
+
+
+
+     <script>
+
+             //创建请求对旬xhr
+             var xhr =new XMLHttpRequest();
+             //2.建立与服务器的连接（get/post）
+             xhr.open('get','https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus');
+             //设置头信息，让数据以表单的形式传递给服务器
+             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+             //3.发送请求*/
+             xhr.send();
+             //4.接受服务器端返回数据
+             xhr.onreadystatechange =function () {
+                 //readyState == 4  代表ajax数据请求已经完成
+                 //status == 200 表示数据成功返回
+                 if (xhr.readyState== 4 && xhr.status== 200){
+                     //responseText中包含了服务端返回数据
+                     var res = JSON.parse(xhr.responseText);
+
+                     var title_content = document.getElementById("title");
+                     var subTitle_content = document.getElementById("subTitle");
+                     var info_contnet = document.getElementById("info");
+
+                     title_content.innerHTML = res.data.title;
+                     subTitle_content.innerHTML = res.data.subTitle;
+                     info_contnet.innerHTML = res.data.info;
+                 }
+             }
+
+
+     </script>
+
+ </article>
+
+
+<footer>
+
+    <a href="DropletService.html">
+        <img src="Resource/nav10.png" alt="">
+        <span>小滴服务</span>
+    </a>
+
+    <a href="DropletService2-1.html">
+        <img src="Resource/nav20.png" alt="">
+        <span>企业项目</span>
+    </a>
+
+    <a href="DropletService3.html">
+        <img src="Resource/nav30.png" alt="">
+        <span>服务流程</span>
+    </a>
+
+    <a href="DropletService4.html">
+        <img src="Resource/nav41.png" alt="">
+        <span style="color:red">平台风采</span>
+    </a>
+
+    <a href="DropletService5.html">
+        <img src="Resource/nav50.png" alt="">
+        <span>我的小滴</span>
+    </a>
+
+</footer>
+
+
+
+
+
+
+
+</body>
+</html>

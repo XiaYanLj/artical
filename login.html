@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--屏幕适配-->
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <link rel="short icon" href="Resource/icon.png" >
+
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <link re="stylesheet"  href="CommonClass.js">
+
+
+    <title>夏炎</title>
+
+    <style>
+
+        .MD_inner_div{
+            margin: 40px;
+            text-align: center;
+
+        }
+
+
+       .L_form_div{
+           width: 100%;
+       }
+        .L_form_inner_div{
+            width:90%;
+            margin:0 auto;
+            border:1px solid #cccccc;
+            border-radius: 5px;
+            background: white;
+            height:100px;
+        }
+        .L_form_inner_div div{
+            height: 50px;
+            border-bottom: 1px solid #cccccc;
+
+
+        }
+        .L_form_inner_div div span{
+            padding-left:15px;
+            font-size:20px;
+            line-height: 50px;
+        }
+        input{
+            outline: medium;
+        }
+        .L_login_div{
+            width:90%;
+            height:50px;
+            background:lightskyblue;
+            border-radius: 10px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .L_login_div input{
+
+            color: white;
+            background:lightskyblue;
+            font-size: 20px;
+            line-height: 50px;
+            height:50px;
+        }
+
+
+    </style>
+
+
+</head>
+
+<header>
+
+    <span>登录</span>
+
+</header>
+
+<body>
+
+
+
+
+
+<form>
+
+    <div class="MD_inner_div">
+
+        <img class = "MD_head_img" src="Resource/head.png" alt ="">
+
+    </div>
+
+
+    <div class="L_form_div">
+
+        <div class="L_form_inner_div">
+
+
+
+             <div>
+
+                 <span>用户名</span>
+                 <input type="text" id="L_account" ><br>
+
+             </div>
+
+                <div>
+
+                    <span>&nbsp;密码</span>
+                    <input type="password" id="L_pwd" ><br>
+
+                </div>
+
+        </div>
+
+        <div class="L_external_login_div">
+
+            <div class="L_login_div">
+
+                <input type="button" value="登录" id="L_btn"><br>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</form>
+
+<script>
+
+    var btn = document.querySelector("#L_btn");
+    btn.onclick = function() {
+        var userName= encodeURIComponent(document.querySelector("#L_account").value);
+        var password= encodeURIComponent(document.querySelector("#L_pwd").value);
+        var par3 = "username" + username + "&pwd" + password;
+        requestMethod('post','login',par3,function(returnStr){
+
+           if (returnStr == "登陆成功"){
+               window.localStorage.setItem("userName",userName);
+               location.href = "DropletService.html";
+           }
+        }
+        else{
+            alert(returnStr)
+        }
+          );
+    }
+
+</script>
+
+
+</body>
+</html>

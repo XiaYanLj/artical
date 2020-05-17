@@ -1,0 +1,74 @@
+
+
+*{
+     padding:0;
+     margin:0;
+}
+
+  body{
+      background:rgb(244,244,246);
+      padding-top: 44px;
+      margin-bottom: 60px;
+  }
+
+  /*
+
+  1.确定元素的位置（xy坐标）
+
+
+  */
+
+  header{
+       background: rgb(40,133,202);
+       color:white;
+       text-align:center;
+       line-height:44px;
+       font-size:18px;
+
+      left: 0;
+      top: 0;
+      width: 100%;
+      position:fixed;
+
+      z-index: 999;
+  }
+/*百分百铺满平面*/
+.DS_section img{
+       width: 100%;
+       margin-bottom: -6px;
+  }
+
+.section img{
+    width: 100%;
+
+}
+
+footer{
+    display:table;
+    background: black;
+    height: 80px;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 13px;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position:fixed;
+
+
+
+}
+
+footer a{
+    display:table-cell;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+footer a span{
+    display:block;
+    color: white;
+}
